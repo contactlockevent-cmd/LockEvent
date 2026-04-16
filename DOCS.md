@@ -25,6 +25,21 @@
 - Verified the production build with `npm run build`.
 
 ## Pending
-- Initialize git in this restored publication folder.
-- Configure the HTTPS GitHub remote for `contactlockevent-cmd/LockEvent`.
-- Push branch `main` and record the exact push output here.
+- None.
+
+## 2026-04-16 — GitHub push result
+- Initialized a fresh git repository on branch `main`.
+- Configured git identity:
+  - `user.name=Lock Event`
+  - `user.email=contact.lockevent@gmail.com`
+- Created root commit:
+  - `75544848c0e36d425eac1cd343df9730de0d6357`
+  - message: `feat: initial Lock Event codebase`
+- Configured the HTTPS remote for `contactlockevent-cmd/LockEvent`.
+- Push output:
+  - `To https://github.com/contactlockevent-cmd/LockEvent.git`
+  - ` * [new branch]      main -> main`
+  - `branch 'main' set up to track 'origin/main'.`
+- Remote verification:
+  - `git ls-remote --heads origin main` returned `75544848c0e36d425eac1cd343df9730de0d6357 refs/heads/main`
+  - `git status --short --branch` returned `## main...origin/main`
