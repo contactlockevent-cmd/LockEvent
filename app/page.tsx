@@ -1,5 +1,41 @@
 import Link from "next/link";
 
+const ValueIcons = {
+  lock: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"/>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+  ),
+  flow: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14M15 6l6 6-6 6"/>
+    </svg>
+  ),
+  shield: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+  ),
+  key: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="7.5" cy="15.5" r="5.5"/>
+      <path d="M21 2l-9.6 9.6M15.5 7.5l3 3"/>
+    </svg>
+  ),
+  location: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s-8-5.686-8-12a8 8 0 1 1 16 0c0 6.314-8 12-8 12z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+  ),
+  diamond: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z"/>
+    </svg>
+  ),
+};
+
 const stats = [
   { value: "100%", label: "Confidentiel" },
   { value: "0 photo", label: "Prise à votre événement" },
@@ -8,32 +44,32 @@ const stats = [
 
 const values = [
   {
-    icon: "🔒",
+    icon: ValueIcons.lock,
     title: "Confidentialité absolue",
     desc: "Nos pochettes verrouillées empêchent toute photo ou vidéo pendant votre événement, sans bloquer l'accès au téléphone.",
   },
   {
-    icon: "⚡",
+    icon: ValueIcons.flow,
     title: "Discret & fluide",
     desc: "Remise à l'entrée, récupération à la sortie. Vos invités gardent leur téléphone en poche — aucune frustration.",
   },
   {
-    icon: "🛡️",
+    icon: ValueIcons.shield,
     title: "Cadenas antivol inclus",
     desc: "Chaque pochette est sécurisée par un cadenas magnétique. Impossible à ouvrir sans notre outil propriétaire.",
   },
   {
-    icon: "🏆",
+    icon: ValueIcons.key,
     title: "Service clé en main",
     desc: "Livraison, installation, personnel sur place, reprise en fin d'événement. Vous n'avez rien à gérer.",
   },
   {
-    icon: "📍",
+    icon: ValueIcons.location,
     title: "Basé à Marseille",
     desc: "Service national avec une équipe dédiée. Frais kilométriques uniquement au-delà de 50 km.",
   },
   {
-    icon: "✨",
+    icon: ValueIcons.diamond,
     title: "Haut de gamme",
     desc: "Pochettes premium adaptées aux événements luxe, corporate, mode. Esthétique soignée pour vos invités VIP.",
   },
@@ -323,7 +359,7 @@ export default function HomePage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 1, background: "rgba(245, 240, 232, 0.05)" }}>
             {values.map((v) => (
               <div key={v.title} style={{ background: "var(--bg)", padding: "40px 32px" }}>
-                <div style={{ fontSize: "1.8rem", marginBottom: 16 }}>{v.icon}</div>
+                <div style={{ color: "var(--gold)", marginBottom: 20 }}>{v.icon}</div>
                 <h3 style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "1.3rem", fontWeight: 500, marginBottom: 12 }}>
                   {v.title}
                 </h3>
