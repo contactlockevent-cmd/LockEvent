@@ -235,27 +235,40 @@ export default function HomePage() {
             maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)",
           }}
         />
-        {/* Atmospheric product image — right side */}
-        <div aria-hidden="true" style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "52%", pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
-          <Image src="/images/product-1.jpg" alt="" fill style={{ objectFit: "cover", objectPosition: "center top", opacity: 0.07 }} sizes="52vw" />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, var(--bg) 0%, rgba(8,8,8,0.15) 45%, rgba(8,8,8,0.45) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, var(--bg) 100%)" }} />
-        </div>
+        {/* Vidéo fond plein écran */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover",
+            opacity: 0.28,
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Overlays sur la vidéo */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(8,8,8,0.85) 30%, rgba(8,8,8,0.4) 70%, rgba(8,8,8,0.6) 100%)", zIndex: 1, pointerEvents: "none" }} />
+        <div aria-hidden="true" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "35%", background: "linear-gradient(to top, var(--bg), transparent)", zIndex: 1, pointerEvents: "none" }} />
         <div
           aria-hidden="true"
           style={{
             position: "absolute",
-            top: "30%",
-            left: "50%",
+            top: "30%", left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 700,
-            height: 500,
-            background: "radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%)",
-            pointerEvents: "none",
+            width: 700, height: 500,
+            background: "radial-gradient(ellipse, rgba(201,168,76,0.05) 0%, transparent 70%)",
+            pointerEvents: "none", zIndex: 1,
           }}
         />
 
-        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", position: "relative" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
           <div className="animate-fade-up delay-1" style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 32 }}>
             <div style={{ width: 32, height: 1, background: "var(--gold)" }} />
             <span style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)" }}>
