@@ -421,8 +421,6 @@ export default function HomePage() {
 
       </section>
 
-      </section>
-
       {/* ─── MARQUEE BAND ─── */}
       <div style={{ background: "rgba(201, 168, 76, 0.06)", borderTop: "1px solid rgba(201, 168, 76, 0.15)", borderBottom: "1px solid rgba(201, 168, 76, 0.15)", padding: "18px 0", overflow: "hidden" }}>
         <div style={{ display: "flex", gap: 56, animation: "marquee 22s linear infinite", width: "max-content" }}>
