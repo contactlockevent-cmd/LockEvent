@@ -34,12 +34,19 @@ export const metadata: Metadata = {
     "confidential event security",
     "phone pouch event france",
   ],
+  metadataBase: new URL("https://lockevent.fr"),
   openGraph: {
-    title: "Lock Event",
+    title: "Lock Event — Protection visuelle pour événements premium",
     description: "Vos événements restent secrets. Pochettes anti-photo avec cadenas antivol pour B2B.",
     siteName: "Lock Event",
     locale: "fr_FR",
     type: "website",
+    url: "https://lockevent.fr",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lock Event — Protection visuelle pour événements premium",
+    description: "Vos événements restent secrets. Pochettes anti-photo avec cadenas antivol pour B2B.",
   },
 };
 

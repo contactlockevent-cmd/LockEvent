@@ -334,7 +334,7 @@ export default function HomePage() {
       {/* ─── PRODUCT SHOWCASE ─── */}
       <section style={{ padding: "100px 32px", background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+          <div className="product-grid">
             {/* Left — texte */}
             <div>
               <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 20 }}>
@@ -362,7 +362,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Right — grille photos */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+            <div className="product-photos-main">
               <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden", gridRow: "span 2" }}>
                 <Image src="/images/product-1.jpg" alt="Pochette Lock Event face avant" fill style={{ objectFit: "cover" }} sizes="300px" />
               </div>
@@ -375,7 +375,7 @@ export default function HomePage() {
             </div>
           </div>
           {/* Bande 3 photos détail */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, marginTop: 8 }}>
+          <div className="product-photos-strip">
             {["/images/product-2.jpg", "/images/product-4.jpg", "/images/product-6.jpg"].map((src, i) => (
               <div key={i} style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
                 <Image src={src} alt={`Lock Event détail ${i + 2}`} fill style={{ objectFit: "cover" }} sizes="400px" />
