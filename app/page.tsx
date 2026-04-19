@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const ValueIcons = {
   lock: (
@@ -324,6 +325,60 @@ export default function HomePage() {
                 <div style={{ fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(245, 240, 232, 0.4)" }}>
                   {s.label}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PRODUCT SHOWCASE ─── */}
+      <section style={{ padding: "100px 32px", background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+            {/* Left — texte */}
+            <div>
+              <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 20 }}>
+                Le produit
+              </div>
+              <h2 style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 400, lineHeight: 1.15, marginBottom: 24 }}>
+                Une pochette conçue pour{" "}
+                <em style={{ fontStyle: "italic", color: "rgba(245,240,232,0.55)" }}>l&apos;exigence</em>
+              </h2>
+              <p style={{ fontSize: "0.95rem", color: "rgba(245,240,232,0.6)", lineHeight: 1.85, marginBottom: 40 }}>
+                Cuir synthétique texturé, fenêtre transparente anti-photo, cadenas magnétique propriétaire. Chaque pochette porte la signature Lock Event — discrète, mais reconnaissable.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {[
+                  "Fenêtre opacifiante intégrée — aucune image ne passe",
+                  "Cadenas magnétique à outil propriétaire",
+                  "Logo embossé discret sur le cuir",
+                  "Compatible tous smartphones jusqu\u2019à 7 pouces",
+                ].map((feat) => (
+                  <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+                    <div style={{ width: 16, height: 1, background: "var(--gold)", marginTop: 10, flexShrink: 0 }} />
+                    <span style={{ fontSize: "0.88rem", color: "rgba(245,240,232,0.65)", lineHeight: 1.6 }}>{feat}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Right — grille photos */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden", gridRow: "span 2" }}>
+                <Image src="/images/product-1.jpg" alt="Pochette Lock Event face avant" fill style={{ objectFit: "cover" }} sizes="300px" />
+              </div>
+              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
+                <Image src="/images/product-3.jpg" alt="Pochette Lock Event avec outil" fill style={{ objectFit: "cover" }} sizes="150px" />
+              </div>
+              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
+                <Image src="/images/product-5.jpg" alt="Logo Lock Event embossé" fill style={{ objectFit: "cover" }} sizes="150px" />
+              </div>
+            </div>
+          </div>
+          {/* Bande 3 photos détail */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, marginTop: 8 }}>
+            {["/images/product-2.jpg", "/images/product-4.jpg", "/images/product-6.jpg"].map((src, i) => (
+              <div key={i} style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
+                <Image src={src} alt={`Lock Event détail ${i + 2}`} fill style={{ objectFit: "cover" }} sizes="400px" />
               </div>
             ))}
           </div>
