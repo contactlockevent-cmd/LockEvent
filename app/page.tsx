@@ -402,47 +402,24 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Deux détails photographiques */}
+            {/* Deux détails — fonctionnel + signature */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               {[
-                { src: "/images/product-3.jpg", n: "02", caption: "Cadenas magnétique" },
-                { src: "/images/product-5.jpg", n: "03", caption: "Cuir embossé" },
-              ].map(({ src, n, caption }) => (
+                { src: "/images/product-4.jpg", caption: "Fenêtre anti-photo" },
+                { src: "/images/product-3.jpg", caption: "Outil propriétaire" },
+              ].map(({ src, caption }) => (
                 <div key={src}>
                   <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
                     <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="180px" />
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8 }}>
-                    <span style={{ fontSize: "0.56rem", letterSpacing: "0.16em", color: "rgba(245,240,232,0.25)", textTransform: "uppercase" }}>{caption}</span>
-                    <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.65rem", color: "rgba(201,168,76,0.35)" }}>{n}</span>
-                  </div>
+                  <span style={{ display: "block", marginTop: 8, fontSize: "0.56rem", letterSpacing: "0.16em", color: "rgba(245,240,232,0.25)", textTransform: "uppercase" }}>{caption}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Film strip — pleine largeur */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid rgba(245,240,232,0.04)" }}>
-          {[
-            { src: "/images/product-2.jpg", n: "04", caption: "Vue d'ensemble" },
-            { src: "/images/product-4.jpg", n: "05", caption: "Outil propriétaire" },
-            { src: "/images/product-6.jpg", n: "06", caption: "Pochette fermée" },
-          ].map(({ src, n, caption }, i) => (
-            <div key={src} style={{ position: "relative", borderLeft: i > 0 ? "1px solid rgba(245,240,232,0.04)" : "none" }}>
-              <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
-                <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
-                {/* Overlay bas */}
-                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 100%)" }} />
-                {/* Caption in-image */}
-                <div style={{ position: "absolute", bottom: 18, left: 20, right: 20, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.75rem", fontStyle: "italic", color: "rgba(245,240,232,0.55)" }}>{caption}</span>
-                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.65rem", color: "rgba(201,168,76,0.45)", letterSpacing: "0.12em" }}>{n}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      </section>
 
       </section>
 
