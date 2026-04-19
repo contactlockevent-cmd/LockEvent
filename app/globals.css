@@ -69,20 +69,24 @@ body::after {
 .delay-4 { animation-delay: 0.6s; }
 .delay-5 { animation-delay: 0.75s; }
 
-/* Product editorial layout */
-.product-editorial {
+/* Product split layout */
+.product-split {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 72px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
 }
-@media (max-width: 768px) {
-  .product-editorial {
+@media (max-width: 900px) {
+  .product-split {
     grid-template-columns: 1fr;
-    gap: 48px;
   }
-  .product-editorial > div:first-child { order: 2; }
-  .product-editorial > div:last-child { order: 1; }
+  .product-split > div:first-child {
+    min-height: 70vw;
+    order: 1;
+  }
+  .product-split > div:last-child {
+    order: 2;
+    padding: 56px 32px;
+  }
 }
 
 .gold-shimmer {

@@ -235,6 +235,12 @@ export default function HomePage() {
             maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)",
           }}
         />
+        {/* Atmospheric product image — right side */}
+        <div aria-hidden="true" style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "52%", pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
+          <Image src="/images/product-1.jpg" alt="" fill style={{ objectFit: "cover", objectPosition: "center top", opacity: 0.07 }} sizes="52vw" />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, var(--bg) 0%, rgba(8,8,8,0.15) 45%, rgba(8,8,8,0.45) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, var(--bg) 100%)" }} />
+        </div>
         <div
           aria-hidden="true"
           style={{
@@ -244,7 +250,7 @@ export default function HomePage() {
             transform: "translate(-50%, -50%)",
             width: 700,
             height: 500,
-            background: "radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -332,114 +338,99 @@ export default function HomePage() {
       </section>
 
       {/* ─── PRODUCT SHOWCASE ─── */}
-      <section style={{ padding: "120px 32px", background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section style={{ background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", overflow: "hidden", position: "relative" }}>
 
-          {/* Header */}
-          <div style={{ display: "flex", alignItems: "center", gap: 28, marginBottom: 80 }}>
-            <div style={{ width: 1, height: 64, background: "linear-gradient(to bottom, transparent, var(--gold), transparent)", flexShrink: 0 }} />
-            <div>
-              <p style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 10 }}>
-                Le produit · N°01
-              </p>
-              <h2 style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 400, lineHeight: 1.1 }}>
-                Une pochette conçue pour{" "}
-                <em style={{ fontStyle: "italic", color: "rgba(245,240,232,0.45)" }}>l&apos;exigence</em>
-              </h2>
+        {/* Split: image plein bord | contenu */}
+        <div className="product-split">
+
+          {/* Image side — saigne jusqu'au bord */}
+          <div style={{ position: "relative", overflow: "hidden", minHeight: 700 }}>
+            <Image src="/images/product-1.jpg" alt="Pochette Lock Event" fill style={{ objectFit: "cover", objectPosition: "center top" }} sizes="(max-width: 900px) 100vw, 50vw" priority />
+            {/* Fondu vers la droite */}
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(100deg, transparent 45%, var(--bg-soft) 92%)" }} />
+            {/* Fondu bas */}
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "25%", background: "linear-gradient(to top, var(--bg-soft), transparent)" }} />
+            {/* Compteur éditorial */}
+            <div style={{ position: "absolute", bottom: 36, left: 40, display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ width: 24, height: 1, background: "rgba(201,168,76,0.4)" }} />
+              <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.65rem", letterSpacing: "0.22em", color: "rgba(245,240,232,0.35)" }}>01 / 06</span>
             </div>
           </div>
 
-          {/* Editorial grid */}
-          <div className="product-editorial">
-            {/* Left: text + 2 detail shots */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
-              <div>
-                <p style={{ fontSize: "0.95rem", color: "rgba(245,240,232,0.6)", lineHeight: 1.9, marginBottom: 36, maxWidth: 420 }}>
-                  Cuir synthétique texturé, fenêtre transparente anti-photo, cadenas magnétique propriétaire. Chaque pochette porte la signature Lock Event — discrète, mais reconnaissable.
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                  {[
-                    "Fenêtre opacifiante intégrée — aucune image ne passe",
-                    "Cadenas magnétique à outil propriétaire",
-                    "Logo embossé discret sur le cuir",
-                    "Compatible tous smartphones jusqu\u2019à 7 pouces",
-                  ].map((feat) => (
-                    <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-                      <div style={{ width: 16, height: 1, background: "var(--gold)", marginTop: 11, flexShrink: 0, opacity: 0.5 }} />
-                      <span style={{ fontSize: "0.85rem", color: "rgba(245,240,232,0.6)", lineHeight: 1.7 }}>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          {/* Panneau texte */}
+          <div style={{ padding: "100px 64px 100px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 36 }}>
+              <div style={{ width: 1, height: 44, background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.5), transparent)" }} />
+              <span style={{ fontSize: "0.57rem", fontWeight: 500, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--gold)" }}>
+                Matériaux &amp; précision
+              </span>
+            </div>
 
-              {/* Two detail images with editorial captions */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {[
-                  { src: "/images/product-3.jpg", n: "02", caption: "Cadenas magnétique" },
-                  { src: "/images/product-5.jpg", n: "03", caption: "Finition cuir" },
-                ].map(({ src, n, caption }) => (
-                  <div key={src}>
-                    <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
-                      <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="200px" />
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 10 }}>
-                      <span style={{ fontSize: "0.58rem", letterSpacing: "0.18em", color: "rgba(245,240,232,0.3)", textTransform: "uppercase" }}>{caption}</span>
-                      <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.7rem", color: "rgba(201,168,76,0.4)" }}>{n}</span>
-                    </div>
+            <h2 style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "clamp(2.4rem, 3.2vw, 3.8rem)", fontWeight: 400, lineHeight: 1.07, marginBottom: 28, maxWidth: 400 }}>
+              Une pochette{" "}
+              <em style={{ fontStyle: "italic", color: "rgba(245,240,232,0.38)" }}>pour l&apos;exigence</em>
+            </h2>
+
+            <p style={{ fontSize: "0.9rem", color: "rgba(245,240,232,0.5)", lineHeight: 1.95, marginBottom: 40, maxWidth: 360 }}>
+              Cuir synthétique texturé, fenêtre opacifiante anti-photo, cadenas magnétique propriétaire. Signature Lock Event — discrète, mais reconnaissable.
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 13, marginBottom: 56 }}>
+              {[
+                "Fenêtre opacifiante — aucune image ne passe",
+                "Cadenas magnétique à outil propriétaire",
+                "Logo embossé discret sur le cuir",
+                "Compatible tous smartphones ≤ 7 pouces",
+              ].map((feat) => (
+                <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
+                  <div style={{ width: 14, height: 1, background: "rgba(201,168,76,0.38)", marginTop: 10, flexShrink: 0 }} />
+                  <span style={{ fontSize: "0.83rem", color: "rgba(245,240,232,0.52)", lineHeight: 1.65 }}>{feat}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Deux détails photographiques */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              {[
+                { src: "/images/product-3.jpg", n: "02", caption: "Cadenas magnétique" },
+                { src: "/images/product-5.jpg", n: "03", caption: "Cuir embossé" },
+              ].map(({ src, n, caption }) => (
+                <div key={src}>
+                  <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
+                    <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="180px" />
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: hero image with editorial frame */}
-            <div style={{ position: "relative" }}>
-              {/* Ghost number */}
-              <div style={{
-                position: "absolute", top: -24, right: -8,
-                fontFamily: "var(--font-display), Georgia, serif",
-                fontSize: "clamp(7rem, 14vw, 13rem)", fontWeight: 300,
-                color: "rgba(201,168,76,0.05)", lineHeight: 1,
-                userSelect: "none", pointerEvents: "none", zIndex: 0,
-                letterSpacing: "-0.04em",
-              }}>01</div>
-              {/* Corner accent — top left */}
-              <div style={{ position: "absolute", top: -14, left: -14, width: 36, height: 36, borderTop: "1px solid rgba(201,168,76,0.35)", borderLeft: "1px solid rgba(201,168,76,0.35)", zIndex: 2, pointerEvents: "none" }} />
-              {/* Corner accent — bottom right */}
-              <div style={{ position: "absolute", bottom: -14, right: -14, width: 36, height: 36, borderBottom: "1px solid rgba(201,168,76,0.35)", borderRight: "1px solid rgba(201,168,76,0.35)", zIndex: 2, pointerEvents: "none" }} />
-              {/* Main image */}
-              <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden", zIndex: 1 }}>
-                <Image src="/images/product-1.jpg" alt="Pochette Lock Event — vue principale" fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 560px" priority />
-                {/* Gradient overlay */}
-                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "38%", background: "linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 100%)", zIndex: 1 }} />
-                {/* Caption inside image */}
-                <div style={{ position: "absolute", bottom: 22, left: 24, right: 24, zIndex: 2, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.82rem", fontStyle: "italic", color: "rgba(245,240,232,0.65)" }}>Vue principale</span>
-                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.7rem", color: "rgba(201,168,76,0.55)", letterSpacing: "0.12em" }}>01 / 06</span>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 8 }}>
+                    <span style={{ fontSize: "0.56rem", letterSpacing: "0.16em", color: "rgba(245,240,232,0.25)", textTransform: "uppercase" }}>{caption}</span>
+                    <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.65rem", color: "rgba(201,168,76,0.35)" }}>{n}</span>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-
-          {/* Film strip — 3 landscape shots */}
-          <div style={{ marginTop: 72, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
-            {[
-              { src: "/images/product-2.jpg", n: "04", caption: "Vue d'ensemble" },
-              { src: "/images/product-4.jpg", n: "05", caption: "Outil de déverrouillage" },
-              { src: "/images/product-6.jpg", n: "06", caption: "Pochette fermée" },
-            ].map(({ src, n, caption }) => (
-              <div key={src}>
-                <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
-                  <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 400px" />
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 12, padding: "0 2px" }}>
-                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.72rem", color: "rgba(245,240,232,0.3)", fontStyle: "italic" }}>{caption}</span>
-                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.7rem", color: "rgba(201,168,76,0.35)", letterSpacing: "0.12em" }}>{n}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
+
+        {/* Film strip — pleine largeur */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid rgba(245,240,232,0.04)" }}>
+          {[
+            { src: "/images/product-2.jpg", n: "04", caption: "Vue d'ensemble" },
+            { src: "/images/product-4.jpg", n: "05", caption: "Outil propriétaire" },
+            { src: "/images/product-6.jpg", n: "06", caption: "Pochette fermée" },
+          ].map(({ src, n, caption }, i) => (
+            <div key={src} style={{ position: "relative", borderLeft: i > 0 ? "1px solid rgba(245,240,232,0.04)" : "none" }}>
+              <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
+                <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
+                {/* Overlay bas */}
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 100%)" }} />
+                {/* Caption in-image */}
+                <div style={{ position: "absolute", bottom: 18, left: 20, right: 20, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.75rem", fontStyle: "italic", color: "rgba(245,240,232,0.55)" }}>{caption}</span>
+                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.65rem", color: "rgba(201,168,76,0.45)", letterSpacing: "0.12em" }}>{n}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </section>
 
       {/* ─── MARQUEE BAND ─── */}
@@ -685,8 +676,13 @@ export default function HomePage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section style={{ padding: "120px 32px" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+      <section style={{ padding: "120px 32px", position: "relative", overflow: "hidden" }}>
+        {/* Image atmosphérique fond */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+          <Image src="/images/product-6.jpg" alt="" fill style={{ objectFit: "cover", opacity: 0.05, filter: "blur(8px)", transform: "scale(1.05)" }} sizes="100vw" />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, var(--bg) 100%)" }} />
+        </div>
+        <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 24 }}>
             Votre prochain événement
           </div>
