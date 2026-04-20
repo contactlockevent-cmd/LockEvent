@@ -214,13 +214,13 @@ export default function HomePage() {
     <div style={{ paddingTop: 68 }}>
       {/* ─── HERO ─── */}
       <section
+        className="hero-outer"
         style={{
           minHeight: "92vh",
           display: "flex",
           alignItems: "center",
           position: "relative",
           overflow: "hidden",
-          padding: "80px 32px",
         }}
       >
         {/* Background grid */}
@@ -436,7 +436,7 @@ export default function HomePage() {
       </div>
 
       {/* ─── VALUES ─── */}
-      <section style={{ padding: "120px 32px" }}>
+      <section className="s-pad">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
             <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 16 }}>
@@ -464,7 +464,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section style={{ padding: "120px 32px", background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", borderBottom: "1px solid rgba(245,240,232,0.05)" }}>
+      <section className="s-pad" style={{ background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", borderBottom: "1px solid rgba(245,240,232,0.05)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ marginBottom: 72 }}>
             <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 16 }}>
@@ -493,7 +493,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── MARKETS ─── */}
-      <section style={{ padding: "120px 32px" }}>
+      <section className="s-pad">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 72, flexWrap: "wrap", gap: 24 }}>
             <div>
@@ -528,7 +528,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── PRICING OVERVIEW ─── */}
-      <section style={{ padding: "120px 32px", background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", borderBottom: "1px solid rgba(245,240,232,0.05)" }}>
+      <section className="s-pad" style={{ background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", borderBottom: "1px solid rgba(245,240,232,0.05)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
             <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 16 }}>
@@ -599,7 +599,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── TESTIMONIALS ─── */}
-      <section style={{ padding: "120px 32px" }}>
+      <section className="s-pad">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
             <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 16 }}>
@@ -631,7 +631,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── FAQ ─── */}
-      <section style={{ padding: "120px 32px", background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", borderBottom: "1px solid rgba(245,240,232,0.05)" }}>
+      <section className="s-pad" style={{ background: "var(--bg-soft)", borderTop: "1px solid rgba(245,240,232,0.05)", borderBottom: "1px solid rgba(245,240,232,0.05)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 72 }}>
             <div style={{ fontSize: "0.6rem", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 16 }}>
@@ -664,7 +664,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section style={{ padding: "120px 32px", position: "relative", overflow: "hidden" }}>
+      <section className="s-pad" style={{ position: "relative", overflow: "hidden" }}>
         {/* Image atmosphérique fond */}
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
           <Image src="/images/product-6.jpg" alt="" fill style={{ objectFit: "cover", opacity: 0.05, filter: "blur(8px)", transform: "scale(1.05)" }} sizes="100vw" />

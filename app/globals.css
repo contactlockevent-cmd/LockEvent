@@ -103,3 +103,23 @@ body::after {
   -webkit-text-fill-color: transparent;
   animation: shimmer 5s linear infinite;
 }
+
+/* ─── Responsive padding ─── */
+.s-pad {
+  padding: 120px 32px;
+}
+.hero-outer {
+  padding: 80px 32px;
+}
+
+@media (max-width: 768px) {
+  .s-pad {
+    padding: 64px 20px;
+  }
+  .hero-outer {
+    padding: 64px 20px;
+  }
+  .product-split > div:last-child {
+    padding: 56px 20px !important;
+  }
+}

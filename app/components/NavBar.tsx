@@ -131,11 +131,15 @@ export default function NavBar() {
             cursor: "pointer",
             display: "none",
             flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
             gap: 5,
-            padding: 4,
+            padding: "12px 10px",
+            minWidth: 44,
+            minHeight: 44,
           }}
           className="show-mobile"
-          aria-label="Menu"
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
         >
           {[0, 1, 2].map((i) => (
             <span
@@ -162,52 +166,66 @@ export default function NavBar() {
 
       {/* Mobile menu */}
       {open && (
-        <div
-          style={{
-            background: "rgba(8, 8, 8, 0.98)",
-            borderTop: "1px solid rgba(245, 240, 232, 0.06)",
-            padding: "24px 32px",
-            display: "flex",
-            flexDirection: "column",
-            gap: 24,
-          }}
-        >
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              style={{
-                fontFamily: "var(--font-display), Georgia, serif",
-                fontSize: "1.5rem",
-                fontWeight: 400,
-                color: "var(--white)",
-                textDecoration: "none",
-              }}
-            >
-              {l.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
+        <>
+          {/* Backdrop */}
+          <div
             onClick={() => setOpen(false)}
             style={{
-              fontFamily: "var(--font-body), sans-serif",
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "#080808",
-              background: "var(--gold)",
-              padding: "14px 28px",
-              textDecoration: "none",
-              textAlign: "center",
-              marginTop: 8,
+              position: "fixed",
+              inset: 0,
+              top: 68,
+              zIndex: -1,
+              background: "rgba(0,0,0,0.5)",
+            }}
+          />
+          <div
+            style={{
+              background: "rgba(8, 8, 8, 0.99)",
+              borderTop: "1px solid rgba(245, 240, 232, 0.06)",
+              padding: "8px 24px 28px",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            Demander un devis
-          </Link>
-        </div>
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                style={{
+                  fontFamily: "var(--font-display), Georgia, serif",
+                  fontSize: "1.5rem",
+                  fontWeight: 400,
+                  color: "var(--white)",
+                  textDecoration: "none",
+                  padding: "14px 0",
+                  borderBottom: "1px solid rgba(245,240,232,0.05)",
+                }}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              style={{
+                fontFamily: "var(--font-body), sans-serif",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#080808",
+                background: "var(--gold)",
+                padding: "16px 28px",
+                textDecoration: "none",
+                textAlign: "center",
+                marginTop: 20,
+              }}
+            >
+              Demander un devis
+            </Link>
+          </div>
+        </>
       )}
 
       <style>{`
