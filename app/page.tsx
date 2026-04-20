@@ -402,19 +402,39 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Deux détails — fonctionnel + signature */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              {[
-                { src: "/images/product-4.jpg", caption: "Fenêtre anti-photo" },
-                { src: "/images/product-3.jpg", caption: "Outil propriétaire" },
-              ].map(({ src, caption }) => (
-                <div key={src}>
-                  <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
-                    <Image src={src} alt={caption} fill style={{ objectFit: "cover" }} sizes="180px" />
-                  </div>
-                  <span style={{ display: "block", marginTop: 8, fontSize: "0.56rem", letterSpacing: "0.16em", color: "rgba(245,240,232,0.25)", textTransform: "uppercase" }}>{caption}</span>
+            {/* Deux détails éditoriaux */}
+            <div style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
+
+              {/* 01 — Fenêtre anti-photo */}
+              <div style={{ flex: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.6rem", color: "rgba(201,168,76,0.45)", letterSpacing: "0.25em" }}>01</span>
+                  <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(201,168,76,0.18), transparent)" }} />
                 </div>
-              ))}
+                <div className="detail-img-wrap" style={{ position: "relative", aspectRatio: "2/3", overflow: "hidden" }}>
+                  <Image src="/images/product-4.jpg" alt="Fenêtre anti-photo" fill style={{ objectFit: "cover", transition: "transform 1s cubic-bezier(0.16,1,0.3,1)" }} sizes="160px" />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,8,8,0.5) 0%, transparent 55%)", pointerEvents: "none" }} />
+                </div>
+                <div style={{ marginTop: 14, paddingTop: 12, borderTop: "1px solid rgba(201,168,76,0.14)" }}>
+                  <span style={{ display: "block", fontSize: "0.5rem", letterSpacing: "0.24em", color: "rgba(245,240,232,0.3)", textTransform: "uppercase" }}>Fenêtre anti-photo</span>
+                </div>
+              </div>
+
+              {/* 02 — Outil propriétaire — décalé */}
+              <div style={{ flex: 1, marginTop: 52 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                  <span style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "0.6rem", color: "rgba(201,168,76,0.45)", letterSpacing: "0.25em" }}>02</span>
+                  <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(201,168,76,0.18), transparent)" }} />
+                </div>
+                <div className="detail-img-wrap" style={{ position: "relative", aspectRatio: "2/3", overflow: "hidden" }}>
+                  <Image src="/images/product-3.jpg" alt="Outil propriétaire" fill style={{ objectFit: "cover", transition: "transform 1s cubic-bezier(0.16,1,0.3,1)" }} sizes="160px" />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(8,8,8,0.5) 0%, transparent 55%)", pointerEvents: "none" }} />
+                </div>
+                <div style={{ marginTop: 14, paddingTop: 12, borderTop: "1px solid rgba(201,168,76,0.14)" }}>
+                  <span style={{ display: "block", fontSize: "0.5rem", letterSpacing: "0.24em", color: "rgba(245,240,232,0.3)", textTransform: "uppercase" }}>Outil propriétaire</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
