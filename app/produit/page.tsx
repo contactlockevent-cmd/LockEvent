@@ -6,6 +6,30 @@ export const metadata: Metadata = {
   description: "Pochettes anti-photo avec cadenas antivol magnétique pour événements confidentiels. Comment ça marche, bénéfices, cas d'usage.",
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Location de pochettes anti-photo Lock Event",
+  description:
+    "Location de pochettes anti-photo à cadenas magnétique propriétaire pour événements B2B confidentiels : lancements produit, AG, défilés, concerts privés, séminaires.",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Lock Event",
+    url: "https://lockevent.fr",
+    email: "contact.lockevent@gmail.com",
+    address: { "@type": "PostalAddress", addressLocality: "Marseille", addressCountry: "FR" },
+  },
+  areaServed: { "@type": "Country", name: "France" },
+  serviceType: "Location de pochettes anti-photo pour événements",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    lowPrice: "350",
+    highPrice: "3500",
+    offerCount: "3",
+  },
+};
+
 const benefits = [
   {
     title: "Anti-photo sans bloquer le téléphone",
@@ -72,6 +96,10 @@ const techSpecs = [
 export default function ProduitPage() {
   return (
     <div style={{ paddingTop: 68 }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Hero */}
       <section style={{ padding: "100px 32px 80px", borderBottom: "1px solid rgba(245,240,232,0.06)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
